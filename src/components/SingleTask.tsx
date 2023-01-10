@@ -32,6 +32,11 @@ export const SingleTask :React.FC<Prop> = ({toDoList ,setToDoList}:Prop) => {
         newArr[index].editBit=false;
         setToDoList(newArr);
     }
+    const TaskDoneHandler=(id:number , index:number):void =>{
+        let newArr:ToDoLIst[] = [...toDoList];
+        newArr[index].isDone = ! newArr[index].isDone;
+        setToDoList(newArr);
+    }
     console.log(toDoList);
   return (
    <div className='tasks_container'>
@@ -42,11 +47,11 @@ export const SingleTask :React.FC<Prop> = ({toDoList ,setToDoList}:Prop) => {
            <input value={editQuery} onChange={(e)=>setEditQuery(e.target.value)} />
            <button>Edit</button>
        </form>
-     : <span className='task_title'> {task.title}</span>}
+     : <span className='task_title'>{task.isDone ? <s>{task.title}</s>: task.title}</span>}
         <span className='task_icon_container'>
          <BsFillTrashFill onClick={()=>DeleteHandler(task.id)}/>
          <MdModeEditOutline onClick={()=>EditHandler(task.id , index)}/>
-         <MdOutlineDone/>
+         <MdOutlineDone onClick={()=>TaskDoneHandler(task.id,index)}/>
         </span>
        </div> 
      )): <h1>No Tasks</h1>}
