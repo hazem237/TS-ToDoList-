@@ -15,7 +15,8 @@ export const ToDoList_Form = ({query , setQuery ,toDoList , setToDoList}:Prop) =
  const toDo:ToDoLIst={
     id: toDoList.length+1,
     title: query,
-    isDone:false
+    isDone:false ,
+    editBit:false
  }
  if(query)
  {
