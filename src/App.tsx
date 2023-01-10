@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { ToDoList_Form } from './components/ToDoList_Form';
+import { ToDoLIst } from './Types/Types';
 
 function App() {
+
+  const[query,setQuery]=useState<string>('');
+  const[toDoList , setToDoList]=useState<ToDoLIst[]>([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>Simple To do list with TS</h1>
+    <ToDoList_Form query={query} setQuery={setQuery} toDoList={toDoList} setToDoList={setToDoList}  />
+
     </div>
   );
 }
