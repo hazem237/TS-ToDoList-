@@ -43,8 +43,8 @@ export const SingleTask :React.FC<Prop> = ({toDoList ,setToDoList}:Prop) => {
      {toDoList.length>0 ? toDoList.map((task , index)=>(
        <div className='task_container' key={task.id}>
        {task.editBit ? 
-       <form onSubmit={()=> submitEdit(task.id , index)}>
-           <input value={editQuery} onChange={(e)=>setEditQuery(e.target.value)} />
+       <form onSubmit={()=> submitEdit(task.id , index)} className='edit_form'>
+           <input value={editQuery} onChange={(e)=>setEditQuery(e.target.value)} className='edit-input'/>
            <button>Edit</button>
        </form>
      : <span className='task_title'>{task.isDone ? <s>{task.title}</s>: task.title}</span>}

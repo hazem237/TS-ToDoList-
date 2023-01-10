@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
     <h1>Simple To do list with TS</h1>
+    <h2>Tasks: {toDoList.length}</h2>
     <ToDoList_Form query={query} setQuery={setQuery} toDoList={toDoList} setToDoList={setToDoList}  />
     <SingleTask toDoList={toDoList} setToDoList={setToDoList} />
 
