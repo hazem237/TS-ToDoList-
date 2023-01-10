@@ -21,7 +21,6 @@ export const ToDoList_Form = ({query , setQuery ,toDoList , setToDoList}:Prop) =
  {
     setToDoList([...toDoList,toDo]);
     setQuery('');
-    console.log(toDoList);
  }
 }
 
